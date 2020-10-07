@@ -17,6 +17,8 @@ namespace EmailCheck
             Console.WriteLine("Your Email is : " + email);
             string mob = cr.MobileNoCondn();
             Console.WriteLine("Your Mobile Number is : "+mob);
+            string pwd = cr.PassWordCondn();
+            Console.WriteLine("Your password is : "+pwd);
         }
     }
 
@@ -94,7 +96,27 @@ namespace EmailCheck
         }
 
         
-
+        public string PassWordCondn()
+        {
+            bool validate = true;
+            string pwdPattern = "\\S{8,}";
+            string validPwd = null;
+            while (validate)
+            {
+                Console.WriteLine("Enter your Password(Minimum 8 characters)");
+                string pwd = Console.ReadLine();
+                if (!(Regex.IsMatch(pwd, pwdPattern)))
+                {
+                    Console.WriteLine("Please enter a valid password");
+                }
+                else
+                {
+                    validPwd = pwd;
+                    validate = false;
+                }
+            }
+            return validPwd;
+        }
         
         
     }
