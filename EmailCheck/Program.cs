@@ -13,8 +13,8 @@ namespace EmailCheck
             Console.WriteLine("Your First Name is :"+fname);
             string lname = cr.NameCondn(2);
             Console.WriteLine("Your Last Name is :"+ lname);
-            // string email = cr.EmailCondn();
-            //Console.WriteLine("Your Email is : " + email);
+            string email = cr.EmailCondn();
+            Console.WriteLine("Your Email is : " + email);
             string mob = cr.MobileNoCondn();
             Console.WriteLine("Your Mobile Number is : "+mob);
         }
@@ -92,6 +92,8 @@ namespace EmailCheck
             }
             return validMob;
         }
+
+        
         
     }
 }
