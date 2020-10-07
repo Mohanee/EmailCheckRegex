@@ -9,14 +9,14 @@ namespace EmailCheck
         {
             Console.WriteLine("Hello Welcome to User registration.");
             CheckRegex cr = new CheckRegex();
-            string fname = cr.NameCondn(1);
+           /* string fname = cr.NameCondn(1);
             Console.WriteLine("Your First Name is :"+fname);
             string lname = cr.NameCondn(2);
             Console.WriteLine("Your Last Name is :"+ lname);
             string email = cr.EmailCondn();
             Console.WriteLine("Your Email is : " + email);
             string mob = cr.MobileNoCondn();
-            Console.WriteLine("Your Mobile Number is : "+mob);
+            Console.WriteLine("Your Mobile Number is : "+mob);*/
             string pwd = cr.PassWordCondn();
             Console.WriteLine("Your password is : "+pwd);
         }
@@ -99,11 +99,11 @@ namespace EmailCheck
         public string PassWordCondn()
         {
             bool validate = true;
-            string pwdPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}$)";
+            string pwdPattern = "^(?=.*[A-Z])(?=.[@#$%^&*!]{1})(?=.*[0-9])(?=.{8,}$)";
             string validPwd = null;
             while (validate)
             {
-                Console.WriteLine("Enter your Password(Minimum 8 characters and atleast one Capital Letter)");
+                Console.WriteLine("Enter your Password(Minimum 8 characters and atleast one Capital Letter and atleast one digit and exactly one special character)");
                 string pwd = Console.ReadLine();
                 if (!(Regex.IsMatch(pwd, pwdPattern)))
                 {
