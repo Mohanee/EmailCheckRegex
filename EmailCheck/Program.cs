@@ -13,6 +13,8 @@ namespace EmailCheck
             Console.WriteLine("Your First Name is :"+fname);
             string lname = cr.NameCondn(2);
             Console.WriteLine("Your Last Name is :"+ lname);
+            string email = cr.EmailCondn();
+            Console.WriteLine("Your Email is : " + email);
         }
     }
 
@@ -44,5 +46,28 @@ namespace EmailCheck
             }
             return validName;
         }
+
+        public string EmailCondn()
+        {
+            bool validate = true;
+            string emailPattern = "[a-z]{3,}[.a-z]{1,}[@][a-z]{2,}[.][a-z]{2,}[.]{a-z}{1,}$";
+            string validEmail = null;
+            while (validate)
+            {
+                Console.WriteLine("Enter your Email (First Letter Capital and min 3 alphabets)");
+                string email = Console.ReadLine();
+                if (!(Regex.IsMatch(email, emailPattern)))
+                {
+                    Console.WriteLine("Please enter a valid email");
+                }
+                else
+                {
+                    validEmail = email;
+                    validate = false;
+                }
+            }
+            return validEmail;
+        }
+        
     }
 }
