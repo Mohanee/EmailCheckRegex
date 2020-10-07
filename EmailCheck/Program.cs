@@ -54,7 +54,7 @@ namespace EmailCheck
         public string EmailCondn()
         {
             bool validate = true;
-            string emailPattern = "[a-z]{3,}[.a-z]{1,}[@][a-z]{2,}[.][a-z]{2,}[.]{a-z}{1,}$";
+            string emailPattern = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)*[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";       //[a-z0-9_]{3,}[.]?[a-z0-9]{0,}[@][a-z]{2,}[.][a-z]{2,}[.]?{a-z}{0,}";
             string validEmail = null;
             while (validate)
             {
@@ -99,11 +99,11 @@ namespace EmailCheck
         public string PassWordCondn()
         {
             bool validate = true;
-            string pwdPattern = "\\S{8,}";
+            string pwdPattern = "^(?=.*[A-Z])(?=.{8,}$)";
             string validPwd = null;
             while (validate)
             {
-                Console.WriteLine("Enter your Password(Minimum 8 characters)");
+                Console.WriteLine("Enter your Password(Minimum 8 characters and atleast one Capital Letter)");
                 string pwd = Console.ReadLine();
                 if (!(Regex.IsMatch(pwd, pwdPattern)))
                 {
