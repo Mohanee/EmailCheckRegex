@@ -54,7 +54,7 @@ namespace EmailCheck
         public string EmailCondn()
         {
             bool validate = true;
-            string emailPattern = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)*[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";       //[a-z0-9_]{3,}[.]?[a-z0-9]{0,}[@][a-z]{2,}[.][a-z]{2,}[.]?{a-z}{0,}";
+            string emailPattern = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)*[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";      
             string validEmail = null;
             while (validate)
             {
