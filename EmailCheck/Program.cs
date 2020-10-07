@@ -99,7 +99,7 @@ namespace EmailCheck
         public string PassWordCondn()
         {
             bool validate = true;
-            string pwdPattern = "^(?=.*[A-Z])(?=.{8,}$)";
+            string pwdPattern = "^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}$)";
             string validPwd = null;
             while (validate)
             {
