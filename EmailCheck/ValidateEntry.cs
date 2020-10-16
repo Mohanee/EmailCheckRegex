@@ -24,26 +24,67 @@ namespace EmailCheck
 
         public bool ValidateFirstName(string firstName)
         {
-            return Regex.IsMatch(firstName, _regexFirstName);
+                bool valid=  Regex.IsMatch(firstName, _regexFirstName);
+                if(!valid)
+                {
+                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_FIRST_NAME, "Invalid First Name");
+                }
+                else
+                {
+                    return valid;
+                }
         }
 
         public bool ValidateLastName(string lastName)
         {
-            return Regex.IsMatch(lastName, _regexLastName);
+            bool valid= Regex.IsMatch(lastName, _regexLastName);
+            if(!valid)
+            {
+                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_LAST_NAME, "Invalid Last Name");
+            }
+            else
+            {
+                return valid;
+            }
+
         }
 
         public bool ValidateEmail(string email)
         {
-            return Regex.IsMatch(email, _regexEmail);
+            bool valid= Regex.IsMatch(email, _regexEmail);
+            if (!valid)
+            {
+                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_EMAIL, "Invalid Email Address");
+            }
+            else
+            {
+                return valid;
+            }
         }
 
         public bool ValidatePassword(string password)
         {
-            return Regex.IsMatch(password, _regexPassword);
+            bool valid= Regex.IsMatch(password, _regexPassword);
+            if (!valid)
+            {
+                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_PASSWORD, "Invalid Password");
+            }
+            else
+            {
+                return valid;
+            }
         }
         public bool ValidateMobileNumber(string mobileNumber)
         {
-            return Regex.IsMatch(mobileNumber, _regexMobileNumber);
+            bool valid= Regex.IsMatch(mobileNumber, _regexMobileNumber);
+            if (!valid)
+            {
+                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_MOBILE_NUMBER, "Invalid Mobile Number");
+            }
+            else
+            {
+                return valid;
+            }
         }
     }
 }
