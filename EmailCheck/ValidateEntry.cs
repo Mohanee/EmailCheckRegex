@@ -22,69 +22,17 @@ namespace EmailCheck
         private string _regexMobileNumber = "^[0-9]{2}[ ][1-9][0-9]{9}$";
 
 
-        public bool ValidateFirstName(string firstName)
-        {
-                bool valid=  Regex.IsMatch(firstName, _regexFirstName);
-                if(!valid)
-                {
-                    throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_FIRST_NAME, "Invalid First Name");
-                }
-                else
-                {
-                    return valid;
-                }
-        }
 
-        public bool ValidateLastName(string lastName)
-        {
-            bool valid= Regex.IsMatch(lastName, _regexLastName);
-            if(!valid)
-            {
-                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_LAST_NAME, "Invalid Last Name");
-            }
-            else
-            {
-                return valid;
-            }
+        public bool ValidateFirstName(string firstName) => Regex.IsMatch(firstName, _regexFirstName) ? true : throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_FIRST_NAME, "Invalid First Name");
 
-        }
+        public bool ValidateLastName(string lastName) => Regex.IsMatch(lastName, _regexLastName) ? true : throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_LAST_NAME, "Invalid Last Name");
 
-        public bool ValidateEmail(string email)
-        {
-            bool valid= Regex.IsMatch(email, _regexEmail);
-            if (!valid)
-            {
-                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_EMAIL, "Invalid Email Address");
-            }
-            else
-            {
-                return valid;
-            }
-        }
+        public bool ValidateEmail(string email) => Regex.IsMatch(email, _regexEmail) ? true : throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_EMAIL, "Invalid Email");
 
-        public bool ValidatePassword(string password)
-        {
-            bool valid= Regex.IsMatch(password, _regexPassword);
-            if (!valid)
-            {
-                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_PASSWORD, "Invalid Password");
-            }
-            else
-            {
-                return valid;
-            }
-        }
-        public bool ValidateMobileNumber(string mobileNumber)
-        {
-            bool valid= Regex.IsMatch(mobileNumber, _regexMobileNumber);
-            if (!valid)
-            {
-                throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_MOBILE_NUMBER, "Invalid Mobile Number");
-            }
-            else
-            {
-                return valid;
-            }
-        }
+        public bool ValidatePassword(string password) => Regex.IsMatch(password, _regexPassword) ? true : throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_PASSWORD, "Invalid Password");
+        public bool ValidateMobileNumber(string mobileNumber) => Regex.IsMatch(mobileNumber, _regexMobileNumber) ? true : throw new CustomExceptions(CustomExceptions.ExceptionType.INVALID_MOBILE_NUMBER, "Invalid Mobile Number");
+
     }
 }
+
+    
